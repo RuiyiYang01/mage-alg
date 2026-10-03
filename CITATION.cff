@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use MAGE, please cite the paper linked below."
+title: "MAGE: Multi-Agent Self-Evolution with Co-Evolutionary Knowledge Graphs"
+type: software
+authors:
+  - family-names: Yang
+    given-names: Ruiyi
+  - family-names: Li
+    given-names: Zechen
+  - family-names: Xue
+    given-names: Hao
+  - family-names: Razzak
+    given-names: Imran
+  - family-names: Salim
+    given-names: Flora D.
+repository-code: "https://github.com/RuiyiYang01/mage-alg"
+url: "https://arxiv.org/abs/2605.10064"
+preferred-citation:
+  type: article
+  title: "MAGE: Multi-Agent Self-Evolution with Co-Evolutionary Knowledge Graphs"
+  authors:
+    - family-names: Yang
+      given-names: Ruiyi
+    - family-names: Li
+      given-names: Zechen
+    - family-names: Xue
+      given-names: Hao
+    - family-names: Razzak
+      given-names: Imran
+    - family-names: Salim
+      given-names: Flora D.
+  year: 2026
+  journal: arXiv
+  doi: "10.48550/arXiv.2605.10064"
+  url: "https://arxiv.org/abs/2605.10064"
+  notes: "Accepted at NeurIPS 2026."

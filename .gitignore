@@ -1,0 +1,40 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+# Local credentials and machine settings
+.env
+.env.*
+*.secret
+*.pem
+*.key
+.claude/
+.codex/
+# Datasets, run outputs, generated tools and retrieval caches
+/data/
+/experiments/
+/results/
+/outputs/
+/logs/
+/checkpoints/
+/models/
+/cache/
+/mage/tools/dynamic/
+/mage/tools/wikipedia_cache/
+/mage/tools/wikipedia_articles/
+*.log
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.pdf

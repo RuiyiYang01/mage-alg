@@ -1,0 +1,48 @@
+# Adapted from webshop_v20_opus_llama.yaml; configure model IDs and endpoint before running.
+experiment:
+  name: webshop
+  output_dir: experiments/webshop
+  seed: 42
+  num_iterations: 3
+  num_episodes: 30
+environment:
+  type: webshop
+  num_products: 100
+  max_steps: 20
+llm:
+  strong:
+    type: anthropic
+    model: claude-opus-4-6
+    temperature: 0.3
+    max_tokens: 4096
+  weak:
+    type: api
+    model: meta-llama/Llama-3.1-8B-Instruct
+    base_url: http://localhost:8000/v1
+    temperature: 0.3
+    max_tokens: 1024
+learner:
+  type: routed
+  use_chain_reasoning: false
+  use_memory_bank: true
+  use_retrieval_recipes: false
+  use_search_agent: false
+  use_principles_cascade: true
+  use_action_recipes: true
+navigator:
+  max_targets: 3
+  mastery_threshold: 0.5
+  use_llm: true
+  stagnation_patience: 2
+explorer:
+  max_steps_per_episode: 20
+  segment_length: 8
+critic:
+  trials_per_skill: 5
+  max_steps_per_trial: 20
+curator:
+  prune_threshold: 0.2
+  max_experiences_per_skill: 5
+  max_failures_per_skill: 3
+  mastery_ema_alpha: 0.6
+  mastery_decay_rate: 0.1

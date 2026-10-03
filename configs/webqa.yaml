@@ -1,0 +1,59 @@
+# Adapted from webqa_v20_opus_llama_seed42.yaml; configure model IDs and endpoint before running.
+experiment:
+  name: webqa
+  output_dir: experiments/webqa
+  seed: 42
+  num_iterations: 5
+  num_episodes: 100
+environment:
+  type: webqa
+  split: test
+  max_instances: 2000
+llm:
+  strong:
+    type: anthropic
+    model: claude-opus-4-6
+    temperature: 0.3
+    max_tokens: 4096
+  weak:
+    type: api
+    model: meta-llama/Llama-3.1-8B-Instruct
+    base_url: http://localhost:8000/v1
+    temperature: 0.3
+    max_tokens: 1024
+learner:
+  type: routed
+  use_chain_reasoning: false
+  max_chain_depth: -1
+  use_memory_bank: true
+  use_retrieval_recipes: false
+  use_search_agent: true
+  use_principles_cascade: true
+  use_action_recipes: false
+  use_skill_lattice: false
+  use_curriculum_retrieval: false
+navigator:
+  max_targets: 3
+  mastery_threshold: 0.5
+  use_llm: true
+  stagnation_patience: 2
+explorer:
+  max_steps_per_episode: 5
+  segment_length: 8
+  question_only: true
+critic:
+  trials_per_skill: 50
+  max_steps_per_trial: 5
+curator:
+  prune_threshold: 0.2
+  max_experiences_per_skill: 5
+  max_failures_per_skill: 3
+  mastery_ema_alpha: 0.6
+  mastery_decay_rate: 0.1
+search_agent:
+  min_pulls_per_arm: 20
+curriculum:
+  n_new: 100
+  demote_after_n_fails: 5
+  demote_revisit_every_k: 3
+  final_exam_size: 200

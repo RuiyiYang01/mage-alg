@@ -1,0 +1,52 @@
+# Adapted from crafter_v21_opus_qwen3.yaml; configure model IDs and endpoint before running.
+experiment:
+  name: crafter
+  output_dir: experiments/crafter
+  seed: 42
+  num_iterations: 5
+  num_episodes: 50
+environment:
+  type: crafter
+  max_steps: 500
+  evokg_init: full
+llm:
+  strong:
+    type: anthropic
+    model: claude-opus-4-6
+    temperature: 0.3
+    max_tokens: 4096
+  weak:
+    type: api
+    model: Qwen/Qwen3-8B
+    base_url: http://localhost:8000/v1
+    temperature: 0.3
+    max_tokens: 1024
+learner:
+  type: routed
+  use_chain_reasoning: false
+  use_memory_bank: true
+  use_retrieval_recipes: false
+  use_search_agent: false
+  use_principles_cascade: false
+  use_action_recipes: false
+  use_skill_lattice: false
+  use_curriculum_retrieval: true
+  use_inference_hints: true
+  principles_cascade_max: 4
+navigator:
+  max_targets: 3
+  mastery_threshold: 0.5
+  use_llm: true
+  stagnation_patience: 2
+explorer:
+  max_steps_per_episode: 100
+  segment_length: 8
+critic:
+  trials_per_skill: 5
+  max_steps_per_trial: 500
+curator:
+  prune_threshold: 0.2
+  max_experiences_per_skill: 5
+  max_failures_per_skill: 3
+  mastery_ema_alpha: 0.6
+  mastery_decay_rate: 0.1

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mage"
+version = "0.1.0"
+description = "MAGE: Multi-Agent Graph-guided Evolution — Co-Evolutionary Knowledge Graphs for Multi-Agent Self-Evolution"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "networkx>=3.0",
+    "pyyaml>=6.0",
+    "numpy",
+    "requests",
+    "torch>=2.0",
+    "transformers>=4.40",
+    "peft>=0.10",
+]
+
+[project.optional-dependencies]
+llm = ["openai", "anthropic", "datasets", "sentence-transformers", "accelerate"]
+spatial = ["shapely", "geopy"]
+quantization = ["bitsandbytes"]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "matplotlib",
+]
+crafter = [
+    "crafter>=1.8",
+]
+
+[tool.setuptools.packages.find]
+include = ["mage*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
